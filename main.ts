@@ -12,7 +12,7 @@ namespace HTX_bil {
     export function motorAForward(speed: number): void {
         pins.analogWritePin(AnalogPinPin.P12, speed)
         pins.digitalWritePin(DigitalPin.P13, 0)
-        pins.digitalWritePin(digitalPin.P2, 1)
+        pins.digitalWritePin(DigitalPin.P2, 1)
     }
 
     /**
@@ -23,7 +23,7 @@ namespace HTX_bil {
     export function motorABackward(speed: number): void {
         pins.digitalWritePin(DigitalPin.P12, 0)
         pins.analogWritePin(AnalogPin.P13, speed)
-        pins.digitalWritePin(digitalPin.P2, 1)
+        pins.digitalWritePin(DigitalPin.P2, 1)
     }
 
     /**
@@ -111,11 +111,11 @@ namespace HTX_bil {
         // Motor A forward
         pins.analogWritePin(DigitalPin.P12, speed)
         pins.digitalWritePin(DigitalPin.P13, 0)
-        pins.digitalWritePin(AnalogPin.P2, 1)
+        pins.digitalWritePin(DigitalPin.P2, 1)
         // Motor B forward
         pins.analogWritePin(DigitalPin.P14, speed)
         pins.digitalWritePin(DigitalPin.P15, 0)
-        pins.digitalWritePin(AnalogPin.P8, 1)
+        pins.digitalWritePin(DigitalPin.P8, 1)
     }
 
     /**
@@ -127,11 +127,11 @@ namespace HTX_bil {
         // Motor A backward
         pins.digitalWritePin(DigitalPin.P12, 0)
         pins.analoglWritePin(DigitalPin.P13, speed)
-        pins.digitalWritePin(AnalogPin.P2, 1)
+        pins.digitalWritePin(DigitalPin.P2, 1)
         // Motor B backward
         pins.digitalWritePin(DigitalPin.P14, 0)
-        pins.analogWritePin(DigitalPin.P15, speed)
-        pins.digitalWritePin(AnalogPin.P8, 1)
+        pins.analogWritePin(AnalogPin.P15, speed)
+        pins.digitalWritePin(DigitalPin.P8, 1)
     }
 
     /**
@@ -143,12 +143,12 @@ namespace HTX_bil {
     export function motorsBackwardTwoSpeeds(speed1: number, speed2: number): void {
         // Motor A backward
         pins.digitalWritePin(DigitalPin.P12, 0)
-        pins.analogWritePin(DigitalPin.P13, speed1)
-        pins.digitalWritePin(AnalogPin.P2, 1)
+        pins.analogWritePin(AnalogPin.P13, speed1)
+        pins.digitalWritePin(digitalPin.P2, 1)
         // Motor B backward
         pins.digitalWritePin(DigitalPin.P14, 0)
-        pins.analogWritePin(DigitalPin.P15, speed2)
-        pins.digitalWritePin(AnalogPin.P8, 1)
+        pins.analogWritePin(AnalogPin.P15, speed2)
+        pins.digitalWritePin(DigitalPin.P8, 1)
     }
 
 }
