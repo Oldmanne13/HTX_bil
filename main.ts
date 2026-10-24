@@ -1,5 +1,5 @@
-//% color=#0fbc11 icon="\uf2db" block="L298LiteDK"
-namespace L298LiteDK {
+//% color=#0fbc11 icon="\uf2db" block="HTX_bil"
+namespace HTX_bil {
     //% block="Aktivér L298 Lite DK (slå LED-display fra)"
     export function init(): void {
         led.enable(false)
@@ -10,9 +10,9 @@ namespace L298LiteDK {
     //% block="Motor A fremad med speed %speed"
     //% speed.min=0 speed.max=1023
     export function motorAForward(speed: number): void {
-        pins.digitalWritePin(DigitalPin.P12, 1)
+        pins.analogWritePin(AnalogPinPin.P12, speed)
         pins.digitalWritePin(DigitalPin.P13, 0)
-        pins.analogWritePin(AnalogPin.P2, speed)
+        pins.digitalWritePin(digitalPin.P2, 1)
     }
 
     /**
@@ -22,8 +22,8 @@ namespace L298LiteDK {
     //% speed.min=0 speed.max=1023
     export function motorABackward(speed: number): void {
         pins.digitalWritePin(DigitalPin.P12, 0)
-        pins.digitalWritePin(DigitalPin.P13, 1)
-        pins.analogWritePin(AnalogPin.P2, speed)
+        pins.analogWritePin(AnalogPin.P13, speed)
+        pins.digitalWritePin(digitalPin.P2, 1)
     }
 
     /**
@@ -33,7 +33,7 @@ namespace L298LiteDK {
     export function stopMotorA(): void {
         pins.digitalWritePin(DigitalPin.P12, 0)
         pins.digitalWritePin(DigitalPin.P13, 0)
-        pins.analogWritePin(AnalogPin.P2, 0)
+        pins.digitalWritePin(DigitalPin.P2, 0)
     }
 
     /**
@@ -42,9 +42,9 @@ namespace L298LiteDK {
     //% block="Motor B fremad med speed %speed"
     //% speed.min=0 speed.max=1023
     export function motorBForward(speed: number): void {
-        pins.digitalWritePin(DigitalPin.P14, 1)
+        pins.analogWritePin(AnalogPin.P14, speed)
         pins.digitalWritePin(DigitalPin.P15, 0)
-        pins.analogWritePin(AnalogPin.P8, speed)
+        pins.digitalWritePin(DigitalPin.P8, 1)
     }
 
     /**
@@ -54,8 +54,8 @@ namespace L298LiteDK {
     //% speed.min=0 speed.max=1023
     export function motorBBackward(speed: number): void {
         pins.digitalWritePin(DigitalPin.P14, 0)
-        pins.digitalWritePin(DigitalPin.P15, 1)
-        pins.analogWritePin(AnalogPin.P8, speed)
+        pins.analogWritePin(AnalogPin.P15, speed)
+        pins.digitalWritePin(DigitalPin.P8, 1)
     }
 
     /**
@@ -65,7 +65,7 @@ namespace L298LiteDK {
     export function stopMotorB(): void {
         pins.digitalWritePin(DigitalPin.P14, 0)
         pins.digitalWritePin(DigitalPin.P15, 0)
-        pins.analogWritePin(AnalogPin.P8, 0)
+        pins.analogWritePin(DigitalPin.P8, 0)
     }
 
     /**
@@ -76,11 +76,11 @@ namespace L298LiteDK {
         // Stop motor A
         pins.digitalWritePin(DigitalPin.P12, 0)
         pins.digitalWritePin(DigitalPin.P13, 0)
-        pins.analogWritePin(AnalogPin.P2, 0)
+        pins.digitalWritePin(DigitalPin.P2, 0)
         // Stop motor B
         pins.digitalWritePin(DigitalPin.P14, 0)
         pins.digitalWritePin(DigitalPin.P15, 0)
-        pins.analogWritePin(AnalogPin.P8, 0)
+        pins.digitalWritePin(DigitalPin.P8, 0)
     }
 
     
@@ -93,13 +93,13 @@ namespace L298LiteDK {
     //% speed2.min=0 speed2.max=1023
     export function motorsForwardTwoSpeeds(speed1: number, speed2: number): void {
         // Motor A forward
-        pins.digitalWritePin(DigitalPin.P12, 1)
+        pins.analogWritePin(AnalogPin.P12, speed1)
         pins.digitalWritePin(DigitalPin.P13, 0)
-        pins.analogWritePin(AnalogPin.P2, speed1)
+        pins.digitalWritePin(DigitalPin.P2, 1 )
         // Motor B forward
-        pins.digitalWritePin(DigitalPin.P14, 1)
+        pins.analogWritePin(AnalogPin.P14, speed2)
         pins.digitalWritePin(DigitalPin.P15, 0)
-        pins.analogWritePin(AnalogPin.P8, speed2)
+        pins.digitalWritePin(DigitalPin.P8, 1)
     }
 
     /**
@@ -109,13 +109,13 @@ namespace L298LiteDK {
     //% speed.min=0 speed.max=1023
     export function motorsForwardSameSpeed(speed: number): void {
         // Motor A forward
-        pins.digitalWritePin(DigitalPin.P12, 1)
+        pins.analogWritePin(DigitalPin.P12, speed)
         pins.digitalWritePin(DigitalPin.P13, 0)
-        pins.analogWritePin(AnalogPin.P2, speed)
+        pins.digitalWritePin(AnalogPin.P2, 1)
         // Motor B forward
-        pins.digitalWritePin(DigitalPin.P14, 1)
+        pins.analogWritePin(DigitalPin.P14, speed)
         pins.digitalWritePin(DigitalPin.P15, 0)
-        pins.analogWritePin(AnalogPin.P8, speed)
+        pins.digitalWritePin(AnalogPin.P8, 1)
     }
 
     /**
@@ -126,12 +126,12 @@ namespace L298LiteDK {
     export function motorsBackwardSameSpeed(speed: number): void {
         // Motor A backward
         pins.digitalWritePin(DigitalPin.P12, 0)
-        pins.digitalWritePin(DigitalPin.P13, 1)
-        pins.analogWritePin(AnalogPin.P2, speed)
+        pins.analoglWritePin(DigitalPin.P13, speed)
+        pins.digitalWritePin(AnalogPin.P2, 1)
         // Motor B backward
         pins.digitalWritePin(DigitalPin.P14, 0)
-        pins.digitalWritePin(DigitalPin.P15, 1)
-        pins.analogWritePin(AnalogPin.P8, speed)
+        pins.analogWritePin(DigitalPin.P15, speed)
+        pins.digitalWritePin(AnalogPin.P8, 1)
     }
 
     /**
@@ -143,12 +143,12 @@ namespace L298LiteDK {
     export function motorsBackwardTwoSpeeds(speed1: number, speed2: number): void {
         // Motor A backward
         pins.digitalWritePin(DigitalPin.P12, 0)
-        pins.digitalWritePin(DigitalPin.P13, 1)
-        pins.analogWritePin(AnalogPin.P2, speed1)
+        pins.analogWritePin(DigitalPin.P13, speed1)
+        pins.digitalWritePin(AnalogPin.P2, 1)
         // Motor B backward
         pins.digitalWritePin(DigitalPin.P14, 0)
-        pins.digitalWritePin(DigitalPin.P15, 1)
-        pins.analogWritePin(AnalogPin.P8,speed2)
+        pins.analogWritePin(DigitalPin.P15, speed2)
+        pins.digitalWritePin(AnalogPin.P8, 1)
     }
 
 }
