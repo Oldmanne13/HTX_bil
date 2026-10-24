@@ -10,7 +10,7 @@ namespace HTX_bil {
     //% block="Motor A fremad med speed %speed"
     //% speed.min=0 speed.max=1023
     export function motorAForward(speed: number): void {
-        pins.analogWritePin(AnalogPinPin.P12, speed)
+        pins.analogWritePin(AnalogPin.P12, speed)
         pins.digitalWritePin(DigitalPin.P13, 0)
         pins.digitalWritePin(DigitalPin.P2, 1)
     }
