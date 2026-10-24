@@ -1,0 +1,13 @@
+{
+  "name": "L298LiteDK",
+  "description": "Motor A/B (basis) til micro:bit.",
+  "version": "1.0.2",
+  "license": "MIT",
+  "dependencies": {
+    "core": "*",
+    "radio": "*"
+  },
+  "files": ["main.ts"],
+  "preferredEditor": "tsprj",
+  "supportedTargets": ["microbit"]
+}
