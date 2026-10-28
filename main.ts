@@ -2,7 +2,7 @@
  //% color=#0fbc11 icon="\uf2db" block="HTX_bil"
 namespace HTX_bil {
 
-    //% block="Aktivér L298 Lite DK (slå LED-display fra)"
+    //% block="Aktivér HTX_Bil (slå LED-display fra)"
     export function init(): void {
         led.enable(false)
     }
